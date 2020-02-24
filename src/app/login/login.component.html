@@ -1,0 +1,124 @@
+<mat-toolbar color="primary" class="app-header">
+  <div><a href="#"  >Portfolio</a></div>
+  <span class="nav-tool-items">
+    <a mat-button (click)="formName='login'">Log in</a>
+    <a mat-button (click)="formName='register'">Register</a>
+  </span>
+</mat-toolbar>
+ 
+ <div *ngIf="formName=='login'" class="login uk-margin-top:5px">
+    <h2 class="login-header">Log in</h2>
+    <form #f="ngForm" [formGroup]="loginForm" class="login-container" (ngSubmit)="Submit(f)">
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+        <input type="email" placeholder="Email" formControlName="email">
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+        <div *ngIf="formControls.email.errors.required">Email is required</div>
+      </div>
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Password" formControlName="password">
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required">Password is required</div>
+      </div>
+  
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+      <div class="fontRed" style="padding-bottom: 15px;">{{error}}</div>
+    </form>
+  </div>
+
+  <div *ngIf="formName=='register'" class="login uk-margin-top:5px">
+    <h2 class="login-header">Register</h2> <img src="../../assets/icons8-registration-48.png" id="icon" alt="User Icon" />
+    <form #regF="ngForm" class="login-container" (ngSubmit)="submitR(regF)">
+      <p>Please fill in this form to create an account.<span>*</span></p>
+      <hr>
+     <label><input type="text" class="fadeIn second" required placeholder="Login Name" #loginName="ngModel" [(ngModel)]="login" name="login" [value]="user?.loginName"></label>
+          <div [hidden]="loginName.valid" class="fontRed" >Name is mandatory.</div>
+         <label> <input type="text" class="fadeIn third" [pattern]="mobNumberPattern" #mobile1="ngModel" [(ngModel)]="mobile" appValidatorDirc minlength="10" [value]="user?.mobile" required name="mobile" maxlength="10" placeholder="Mobile"></label>
+         <div [hidden]="mobile1.valid" class="fontRed" >Mobile is mandatory.</div>
+          <label><input type="text" email="true" class="fadeIn second" required [(ngModel)]="email" name="email" #email1="ngModel" placeholder="Email Id" [value]="user?.email"></label>
+          <div [hidden]="email1.valid" class="fontRed" >Email is mandatory.</div>
+          <label><input type="password" [(ngModel)]="password" class="fadeIn second" required placeholder="Password" name="password" #password1="ngModel" [value]="user?.password"></label>
+          <div [hidden]="password1.valid" class="fontRed" >Password is mandatory.</div>
+          <input type="submit" [disabled]="!regF.valid" class="fadeIn fourth" value="Register">
+          <div class="fontRed" style="padding-bottom: 15px;">{{errorMsg}}</div>
+    </form>
+      <div class="container signin">
+        <p>Already have an account? <a hhref="javascript:void(0)" (click)="formName='login'">Sign in</a>.</p>
+      </div>
+
+           <div *ngIf="isSuccess">
+          <h2 class="active"> Awesome </h2>
+          <div class="fadeIn first" style="margin-top: 5%;">
+            <img src="/assets/images/tick.png" id="icon" alt="Success Icon" />
+          </div>
+         <label class="successmsg"> Your registration has been completed successfully with email id - {{email}}.</label>
+        </div>
+  </div>
+
+
+    <!-- <div *ngIf="formName=='register'" class="container">
+      <h1>Register</h1>
+      <h2 class="active"> Registration Form </h2>
+        <div class="fadeIn first">
+          <img src="/assets/icons8-registration-48.png" id="icon" alt="User Icon" />
+        </div>
+        <form #regF="ngForm" (ngSubmit)="submit(regF)" >
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <hr>
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+  
+      <button type="submit" class="registerbtn">Register</button>
+      <div class="container signin">
+        <p>Already have an account? <a hhref="javascript:void(0)" (click)="formName='login'">Sign in</a>.</p>
+      </div>
+    </div>
+     -->
+    
+     <!-- <div class="wrapper">
+      <div id="formContent"> 
+      <div *ngIf="!isSuccess">
+        <h2 class="active"> Registration Form </h2>
+        <div class="fadeIn first">
+          <img src="/assets/images/icons8-registration-48.png" id="icon" alt="User Icon" />
+        </div>
+        <form #regF="ngForm" (ngSubmit)="submit(regF)" >
+          <label><input type="text" class="fadeIn second" required placeholder="Login Name" #loginName="ngModel" [(ngModel)]="login" name="login" [value]="user?.loginName"></label>
+          <div [hidden]="loginName.valid" class="fontRed" >Name is mandatory.</div>
+         <label> <input type="text" class="fadeIn third" [pattern]="mobNumberPattern" #mobile1="ngModel" [(ngModel)]="mobile" appValidatorDirc minlength="10" [value]="user?.mobile" required name="mobile" maxlength="10" placeholder="Mobile"></label>
+         <div [hidden]="mobile1.valid" class="fontRed" >Mobile is mandatory.</div>
+          <label><input type="text" email="true" class="fadeIn second" required [(ngModel)]="email" name="email" #email1="ngModel" placeholder="Email Id" [value]="user?.email"></label>
+          <div [hidden]="email1.valid" class="fontRed" >Email is mandatory.</div>
+          <label><input type="password" [(ngModel)]="password" class="fadeIn second" required placeholder="Password" name="password" #password1="ngModel" [value]="user?.password"></label>
+          <div [hidden]="password1.valid" class="fontRed" >Password is mandatory.</div>
+          <input type="submit" [disabled]="!regF.valid" class="fadeIn fourth" value="Register">
+          <div class="fontRed" style="padding-bottom: 15px;">{{errorMsg}}</div>
+        </form>
+      </div>
+        <div *ngIf="isSuccess">
+          <h2 class="active"> Awesome </h2>
+          <div class="fadeIn first" style="margin-top: 5%;">
+            <img src="/assets/images/tick.png" id="icon" alt="Success Icon" />
+          </div>
+         <label class="successmsg"> Your registration has been completed successfully with email id - {{email}}.</label>
+        </div>
+      </div>
+    </div> -->
+
+  

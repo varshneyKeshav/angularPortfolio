@@ -1,0 +1,33 @@
+<form> 
+    <div class="wrapper ">
+        <div id="formContent" style="margin-top:2%;margin-bottom: 1.5%;" class="cardWidth">
+          <h2 class="active" style="margin-top:5%">User Details</h2>
+          <div class="fadeIn first" style="margin-top:2.5%; margin-bottom: 2.5%;"> 
+            <img src="../../assets/icons8-registration-48.png" id="icon" alt="User Icon" />
+          </div>
+            <div class="table-responsive"> 
+          <table class="table table-hover ">
+            <thead><tr>
+              <th>S.No.</th>
+              <th>Login Name</th>
+              <th>Password</th>
+              <th>Email Id</th>
+              <th>Mobile</th>
+              <th>Edit</th></tr>
+            </thead>
+            <tbody *ngFor="let hero of obj;let i = index">
+              <tr>
+                <td>{{i+1}}.</td>
+                <td>{{ hero.loginName }}</td>
+                <td>{{ hero.password }}</td>
+                <td>{{ hero.email }}</td>
+                <td>{{ hero.mobile }}</td>
+                <td><a href="javascript:void(0)" (click)="editUser(hero)"  >
+                  Click to Edit
+                </a></td>
+              </tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </form> 

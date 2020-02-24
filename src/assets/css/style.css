@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+    color: #000;
+    font-size: 1.4rem;
+    font-family: 'Lobster', cursive;
+    background-image: radial-gradient( circle farthest-corner at 51.3% -27.8%,  rgba(255,255,255,0.80) 9.9%, rgba(192,213,240,1) 68.2% );
+    /* background-image: url(../image/background.jpg); */
+}
+body a{
+    text-decoration: none;
+    color: aliceblue;
+}
+body li{
+    list-style-type: none;
+}
+body .container{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+body .segment{
+    width: 100%;
+    height: auto;
+    border: 1px rgb(194, 193, 193) solid;
+    margin: 4px 0px 0px;
+    padding: 10px;
+    box-shadow: 2px #dcdcdc;
+    background-color: #fff;    
+}
+body .card{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    /* border: 1px rgb(194, 193, 193) solid; */
+    /* padding: 10px; */
+    background-color: #fff;
+    border-radius: 3px;
+    animation-fill-mode: backwards;
+    animation-duration: 0.5s;
+    animation-name: item;
+    margin: 0px 5px;
+    display: inline-block;
+    /* overflow: hidden; */
+    cursor: pointer;
+    
+}
+body .card:hover{
+    box-shadow: 0px 10px 20px -1px rgb(102, 94, 94);
+    padding: 0;
+}
+header{
+    width: 100%;
+    
+    /* background-image: url(../image/banner6.jpg); */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+header ul li{
+    display: inline-block;
+    vertical-align: middle;
+}
+.header-bar{
+    background-color: coral;
+    opacity: 0.8;
+}
+.header-bar ul li{
+    padding: 5px;
+}
+.header-bar ul li:nth-child(2),.header-bar ul li:nth-child(3){
+    border-left: 4px #000 solid;
+}
+.header-bar ul li:nth-child(3),.header-bar ul li:nth-child(4){
+    float: right;
+    overflow: hidden;
+}
+.header-main .container{
+    text-align: center;
+}
+.header-main .container span{
+    font-size: 5.5rem;
+    color: coral;
+}
+.header-main .container p{
+    font-size: 2rem;
+    color: #000;
+    padding-top: 0px;
+}
+nav{
+    text-align: center;
+    width: 100%;
+    border-top: 1px  #dcdcdc solid;
+    border-bottom: 1px  #dcdcdc solid;
+    margin-top: 5px;
+}
+nav ul li{
+    color: coral;
+    font-weight: bold;
+    font-size: 1.6rem;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+nav ul li:hover{
+    color: #fff;
+    cursor: pointer;
+    background-color: coral;
+    opacity: 0.5;
+    font-family: inherit;
+    font-weight: bold;
+}
+.banner{
+    max-width: 100%;
+}
+.banner .banner-img img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner,.banner .banner-img{
+    position: relative;
+}
+.banner .banner-caption{
+    width: auto;
+    height: auto;
+    background: #bb8d73;
+    position: absolute;
+    top: 66%;
+    left: 16%;
+}
+.banner .banner-caption strong{
+    font-size: 8rem;
+    letter-spacing: 5px;
+}
+.main-section .card{
+    width: 24%;
+    transition: all 1s ease-in-out;
+}
+.card .card-img img{
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    height: auto;
+}
+.card .card-img img:hover{
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    transform: scale(2,2);
+}
+.card .cord-content{
+    padding: 5px 10px !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} 
+.card .cord-content .heading a{
+    color: rgb(75, 75, 75);
+    font-weight: bold;
+    text-align: justify;
+}
+.card .cord-content .heading a:hover{
+    text-decoration: underline;
+    color: #000;
+    cursor: pointer;
+}
+.container .segment{
+    margin-bottom: 20px;
+}
+.post-detail{
+    border-top: 1px #dcdcdc solid;
+    border-bottom: 1px #dcdcdc solid;
+    padding: 5px 0;
+    margin-top: 5px;
+}
+.post-detail ul{
+    display: inline-block;
+    color: #cccbcb;
+}
+.post-detail ul:last-child{
+    float: right;
+    overflow: hidden;
+}
+.cord-content .product-detail p{
+    color: rgb(163, 157, 148);
+    text-align: center;
+    
+}
